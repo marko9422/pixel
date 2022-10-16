@@ -1,8 +1,25 @@
-* {
-  padding: 0;
+*{
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-body {
-  background-color: #f4c531;
+body{
+  background-color: rgb(78, 84, 84);
+}
+.grid{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+
+  text-align: center;
+  width: 150px;
+  font-size: 0px;
+}
+.pixel{
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgb(17, 17, 17);
+  display: inline-block;
+  background-color: rgb(225, 225, 225);
 }
