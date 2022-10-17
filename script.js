@@ -37,12 +37,8 @@ function colorChange(){
 
     } else {
         this.style.backgroundColor = color;
-
+// iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
     }
 }
-
-
-
-
 
 
