@@ -17,28 +17,29 @@ let pixels = Array.from(document.getElementsByClassName('pixel'))
 let sizeOfPixel = 20;
 grid.style.width = sizeOfPixel * sizeOfside + 'px'; 
 
-// On click change colour of that div. 
+// On click or drag change colour of that div. 
+let color = 'red'
+let click = false
+
 function colorChangeOnClick(){
     this.style.backgroundColor = color;
 }
 
-let color = 'red'
-let click = false
-
-window.addEventListener('mousedown',function(){
+document.addEventListener('mousedown',function(){
+    event.preventDefault();
     click = true
 })
-window.addEventListener('mouseup',function(){
+
+document.addEventListener('mouseup',function(){
+    event.preventDefault();
     click = false
 })
 
 function colorChange(){
     if(click == false){
-
+        event.preventDefault();
     } else {
+        event.preventDefault();
         this.style.backgroundColor = color;
-// iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
     }
 }
-
-
