@@ -9,6 +9,7 @@ for (let i = 0; i < gridWidht; i++) {
     div.id = `pixel${i}`;
     div.addEventListener('mouseover',colorChange)
     div.addEventListener('mousedown',colorChangeOnClick)
+    div.addEventListener('dblclick',erase)
     grid.appendChild(div);
 }
 
@@ -42,4 +43,12 @@ function colorChange(){
         event.preventDefault();
         this.style.backgroundColor = color;
     }
+}
+
+//On double click background colour default.
+function erase(){
+    this.style.backgroundColor = 'rgb(225, 225, 225)';
+}
+function colorPick(){
+    color = this.event.target.id
 }
