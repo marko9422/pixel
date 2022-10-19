@@ -1,5 +1,9 @@
 const grid = document.querySelector('.grid');
-// Create grid with class and ID. 
+
+////////////creating grid/////////////
+// Create grid with class and ID. ////
+//////////////////////////////////////
+
 let sizeOfside = 35;
 let gridWidht = sizeOfside * sizeOfside;
 
@@ -18,7 +22,10 @@ let pixels = Array.from(document.getElementsByClassName('pixel'))
 let sizeOfPixel = 20;
 grid.style.width = sizeOfPixel * sizeOfside + 'px'; 
 
-// On click or drag change colour of that div. 
+///////////////drawing///////////////////////////
+// On click or drag change colour of that div. //
+/////////////////////////////////////////////////
+
 let color = 'red'
 let click = false
 
@@ -51,4 +58,17 @@ function erase(){
 }
 function colorPick(){
     color = this.event.target.id
+}
+
+// ///////// saving data ///////////
+// Save data into array. ///////////
+// /////////////////////////////////
+
+let bg_colors = []
+function saveData(){
+    pixels.forEach(pixel => {
+        let backgroundColor = (window.getComputedStyle( pixel ,null).getPropertyValue('background-color'));
+        bg_colors.push(backgroundColor)
+    });  
+    console.log(bg_colors);
 }
