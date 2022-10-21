@@ -56,19 +56,30 @@ function colorChange(){
 function erase(){
     this.style.backgroundColor = 'rgb(225, 225, 225)';
 }
+// color picker
 function colorPick(){
     color = this.event.target.id
 }
+// Clear grid func
+function clearData(){
+    pixels.forEach(pixel => {
+        pixel.style.backgroundColor = 'rgb(225, 225, 225)';
+    });
+}
 
 // ///////// saving data ///////////
-// Save data into array. ///////////
+// Save data into json. ///////////
 // /////////////////////////////////
 
 let bg_colors = []
 function saveData(){
+    let name = 'name of array'
+    bg_colors.push(name)
     pixels.forEach(pixel => {
         let backgroundColor = (window.getComputedStyle( pixel ,null).getPropertyValue('background-color'));
         bg_colors.push(backgroundColor)
     });  
-    console.log(bg_colors);
+    let bg_colorsJSON = {...bg_colors}
+    console.log(bg_colorsJSON);
 }
+
