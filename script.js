@@ -81,5 +81,19 @@ function saveData(){
     });  
     let bg_colorsJSON = {...bg_colors}
     console.log(bg_colorsJSON);
+
+
+let zzz = JSON.stringify(bg_colors)
+
+    // Send a POST request
+    axios({
+        method: 'post',
+        url: 'php/pixelData.php',
+        data: {
+            pixels: zzz,
+        }
+    });
+
+
 }
 

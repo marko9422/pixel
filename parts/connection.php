@@ -4,9 +4,9 @@ $username = 'root';
 $password = '';
 $db = 'drawedPixelData';
 
-$conn = mysqli_connect($server,$username,$password,$db);
+$link = mysqli_connect($server,$username,$password,$db);
 
-if(!$conn){
+if(!$link){
     die('Connection Failed: '.mysqli_connect_error());
 }
 ?>
