@@ -72,6 +72,7 @@ function clearData(){
 // /////////////////////////////////
 
 let bg_colors = []
+
 function saveData(){
     let name = 'name of array'
     bg_colors.push(name)
@@ -79,21 +80,27 @@ function saveData(){
         let backgroundColor = (window.getComputedStyle( pixel ,null).getPropertyValue('background-color'));
         bg_colors.push(backgroundColor)
     });  
-    let bg_colorsJSON = {...bg_colors}
-    console.log(bg_colorsJSON);
+   console.log(bg_colors)
 
+    // Unique ID
+    const uniqueId = () => {
+        const dateString = Date.now().toString(36);
+        const randomness = Math.random().toString(36).substr(2);
+        return dateString + randomness;
+    };
 
-let zzz = JSON.stringify(bg_colors)
+    let zzz = JSON.stringify(bg_colors)
 
-    // Send a POST request
-    axios({
-        method: 'post',
-        url: 'php/pixelData.php',
-        data: {
-            pixels: zzz,
-        }
-    });
+        // Send a POST request
+        axios({
+            method: 'post',
+            url: 'php/pixelData.php',
+            data: {
+                pixels: zzz,
+                number: uniqueId(),
+            }
+        });
 
-
+    // clear array after post.
+    bg_colors = []
 }
-
