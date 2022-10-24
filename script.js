@@ -78,9 +78,11 @@ function saveData(){
     bg_colors.push(name)
     pixels.forEach(pixel => {
         let backgroundColor = (window.getComputedStyle( pixel ,null).getPropertyValue('background-color'));
-        bg_colors.push(backgroundColor)
+        bg_colors.push(backgroundColor)   
     });  
-   console.log(bg_colors)
+    let link = window.location.href
+    bg_colors.push(link)
+    
 
     // Unique ID
     const uniqueId = () => {
@@ -88,19 +90,31 @@ function saveData(){
         const randomness = Math.random().toString(36).substr(2);
         return dateString + randomness;
     };
+    let number = uniqueId();
+    let JSONbg_colors = JSON.stringify(bg_colors)
 
-    let zzz = JSON.stringify(bg_colors)
+  
 
-        // Send a POST request
-        axios({
-            method: 'post',
-            url: 'php/pixelData.php',
-            data: {
-                pixels: zzz,
-                number: uniqueId(),
-            }
-        });
 
+    // Send a POST request
+    axios({
+        method: 'post',
+        url: 'show.php',
+        data: {
+            pixels: JSONbg_colors,
+            number: number,
+        }
+    });
+    
+   
     // clear array after post.
     bg_colors = []
+    // On click change url into show.php with uniqu number.
+    location.href = `http://localhost/pixel/show.php?number=${number}`;
 }
+
+
+
+
+    
+

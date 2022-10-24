@@ -24,3 +24,7 @@ body{
   display: inline-block;
   background-color: rgb(225, 225, 225);
 }
+
+#arrayFromSQL{
+  display: none;
+}
