@@ -93,9 +93,6 @@ function saveData(){
     let number = uniqueId();
     let JSONbg_colors = JSON.stringify(bg_colors)
 
-  
-
-
     // Send a POST request
     axios({
         method: 'post',
@@ -106,7 +103,6 @@ function saveData(){
         }
     });
     
-   
     // clear array after post.
     bg_colors = []
     // On click change url into show.php with uniqu number.

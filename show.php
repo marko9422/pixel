@@ -8,8 +8,11 @@ $data = json_decode($request_body, true);
 
 $number = $data['number']; 
 $pixelsData = ($data['pixels']); 
+// if you send empty values do not save data.
+if(!$data == '' || !$pixelsData == ''){
+  mysqli_query($link,"INSERT INTO drawdata (number, pixelsData) VALUES ('$number', '$pixelsData')");
+} 
 
-mysqli_query($link,"INSERT INTO drawdata (number, pixelsData) VALUES ('$number', '$pixelsData')");
 
 
 // get data
@@ -32,8 +35,6 @@ if (mysqli_num_rows($result) > 0) {
 
 <div class="grid"></div>
 <a href='index.php'>Main web</a>
-
-
 
 
 <script src="show.js"></script>

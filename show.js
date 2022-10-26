@@ -30,5 +30,5 @@ for (let i = 0; i < pixelsArray.length; i++) {
     pixels[i].style.backgroundColor = pixelsArray[i];
 }
 
-
-
+// Style of the pointer
+grid.style.cursor = 'default';
