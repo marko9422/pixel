@@ -31,6 +31,9 @@ if (mysqli_num_rows($result) > 0) {
 
 
 <div class="grid"></div>
+<a href='index.php'>Main web</a>
+
+
 
 
 <script src="show.js"></script>

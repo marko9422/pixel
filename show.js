@@ -31,3 +31,4 @@ for (let i = 0; i < pixelsArray.length; i++) {
 }
 
 
+
