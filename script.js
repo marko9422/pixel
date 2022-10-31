@@ -43,7 +43,7 @@ for (let i = 0; i < gridWidht; i++) {
 
 // Create width of grid , depends of size sizeOfSite.
 let pixels = Array.from(document.getElementsByClassName('pixel'))
-let sizeOfPixel = 20;
+let sizeOfPixel = parseInt(getComputedStyle(document.querySelector('.pixel')).height) // [violation]
 grid.style.width = sizeOfPixel * sizeOfside + 'px'; 
 
 ///////////////drawing///////////////////////////
