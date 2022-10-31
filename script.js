@@ -11,10 +11,34 @@ for (let i = 0; i < gridWidht; i++) {
     let div = document.createElement('div');
     div.classList = 'pixel';
     div.id = `pixel${i}`;
+    // pc listeners
     div.addEventListener('mouseover',colorChange)
-    div.addEventListener('mousedown',colorChangeOnClick)
     div.addEventListener('dblclick',erase)
     grid.appendChild(div);
+
+    // mobile device listeners
+    div.addEventListener('pointerdown',colorChangeOnClick)
+
+    div.addEventListener('touchmove',function(e){
+        x = e.touches[0].clientX
+        y = e.touches[0].clientY
+        
+    // Drawing with touch and drag
+    function click(x, y){
+        var ev = new MouseEvent('click', {
+            'view': window,
+            'bubbles': true,
+            'cancelable': true,
+            'screenX': x,
+            'screenY': y
+        });
+    
+        var el = document.elementFromPoint(x, y);
+        el.dispatchEvent(ev);
+        return el.id
+    }
+    document.getElementById(click(x, y)).style.backgroundColor = color;
+    })
 }
 
 // Create width of grid , depends of size sizeOfSite.
@@ -33,7 +57,7 @@ function colorChangeOnClick(){
     this.style.backgroundColor = color;
 }
 
-document.addEventListener('mousedown',function(){
+document.addEventListener('mousedown',function(event){
     event.preventDefault();
     click = true
 })
@@ -66,6 +90,9 @@ function clearData(){
         pixel.style.backgroundColor = 'rgb(225, 225, 225)';
     });
 }
+
+
+
 
 // ///////// saving data ///////////
 // Save data into json. ///////////
@@ -109,8 +136,4 @@ function saveData(){
     location.href = `http://localhost/pixel/show.php?number=${number}`;
 }
 
-
-
-
-    
 

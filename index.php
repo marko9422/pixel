@@ -18,5 +18,7 @@
 <button onclick="clearData()">clear</button>
 
 
+
 <script src="script.js"></script>
+
 <?php include 'parts/footer.php' ?>
