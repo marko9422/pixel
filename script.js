@@ -22,7 +22,7 @@ for (let i = 0; i < gridWidht; i++) {
     div.addEventListener('touchmove',function(e){
         x = e.touches[0].clientX
         y = e.touches[0].clientY
-        
+        event.preventDefault();
     // Drawing with touch and drag
     function click(x, y){
         var ev = new MouseEvent('click', {
@@ -63,15 +63,12 @@ document.addEventListener('mousedown',function(event){
 })
 
 document.addEventListener('mouseup',function(){
-    event.preventDefault();
     click = false
 })
 
 function colorChange(){
     if(click == false){
-        event.preventDefault();
     } else {
-        event.preventDefault();
         this.style.backgroundColor = color;
     }
 }
@@ -90,9 +87,6 @@ function clearData(){
         pixel.style.backgroundColor = 'rgb(225, 225, 225)';
     });
 }
-
-
-
 
 // ///////// saving data ///////////
 // Save data into json. ///////////
