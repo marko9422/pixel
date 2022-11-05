@@ -47,7 +47,7 @@ let sizeOfPixel = parseInt(getComputedStyle(document.querySelector('.pixel')).he
 grid.style.width = sizeOfPixel * sizeOfside + 'px'; 
 
 ///////////////drawing///////////////////////////
-// On click or drag change colour of that div. //
+// On click or drag change colour. //////////////
 /////////////////////////////////////////////////
 
 let color = 'red'
@@ -89,7 +89,7 @@ function clearData(){
 }
 
 // ///////// saving data ///////////
-// Save data into json. ///////////
+// Save data into sql. /////////////
 // /////////////////////////////////
 
 let bg_colors = []
@@ -104,7 +104,6 @@ function saveData(){
     let link = window.location.href
     bg_colors.push(link)
     
-
     // Unique ID
     const uniqueId = () => {
         const dateString = Date.now().toString(36);
@@ -130,4 +129,18 @@ function saveData(){
     location.href = `http://localhost/pixel/show.php?number=${number}`;
 }
 
+///////////////////////////////////
+////// Range on mobile device /////
+///////////////////////////////////
 
+upDown = document.querySelector('#rangeUpDown');
+leftRight = document.querySelector('#rangeLeftRight');
+
+upDown.addEventListener('input',function(){
+    leftRightValue = leftRight.value
+    grid.style.transform = `translate(-${leftRightValue}%,-${this.value}%)`
+})
+leftRight.addEventListener('input',function(){
+    upDownValue = upDown.value
+    grid.style.transform = `translate(-${this.value}%,-${upDownValue}%)`
+})

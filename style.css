@@ -8,13 +8,17 @@ body{
 }
 .grid{
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
   cursor: crosshair;
-
   text-align: center;
   font-size: 0px;
+
+  top: 0%; 
+  left: 0%;
+  transform: translate(0%,0%); 
+
+  /* top: 50%; 
+  left: 50%; 
+  transform: translate(-50%,-50%); */
 }
 .pixel{
   width: 20px;
@@ -28,6 +32,45 @@ body{
   display: none;
 }
 
+/* drag Grid */
+.touchGrid{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  overflow: hidden;
+
+  height: 300px;
+  width: 300px;
+  border: 3px solid red;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 20px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #04AA6D;
+}
+.upDown{
+  transform: rotate(90deg); 
+  position: absolute;
+  top: 40%;
+  left: 55%;
+}
+.leftRight{
+
+}
 
 /*************************/
 /****** Responsivity *****/
