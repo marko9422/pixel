@@ -144,3 +144,31 @@ leftRight.addEventListener('input',function(){
     upDownValue = upDown.value
     grid.style.transform = `translate(-${this.value}%,-${upDownValue}%)`
 })
+
+// Is this device TOUCH or MOUSE
+let result = document.querySelector(".touchGrid");
+const isTouchDevice = () => {
+  try {
+    document.createEvent("TouchEvent");
+  } catch (e) {
+  }
+};
+isTouchDevice();
+
+
+
+
+
+
+
+
+
+///////////////////////////////
+////// responsivity ///////////
+///////////////////////////////
+
+
+
+
+
+

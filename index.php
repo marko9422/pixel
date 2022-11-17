@@ -1,9 +1,17 @@
 <?php include 'parts/header.php' ?>
 
+<div class="container">
+    <input type="range" min="0" max="58" value="0" class="slider leftRight" id="rangeLeftRight">
 
-<div class="touchGrid">
-    <div class="grid"></div>
+    <input type="range" min="0" max="58" value="0" class="slider upDown" id="rangeUpDown">
+
+    <div class="touchGrid">
+        <div class="grid"></div>
+    </div>
+    
 </div>
+  
+
 
 
 <div class="colours">
@@ -19,10 +27,7 @@
 <button onclick="saveData()">Save Data</button>
 <button onclick="clearData()">clear</button>
 
-<div class="slidecontainer">
-    <input type="range" min="0" max="58" value="0" class="slider upDown" id="rangeUpDown">
-    <input type="range" min="0" max="58" value="0" class="slider leftRight" id="rangeLeftRight">
-</div>
+
 
 <script src="script.js"></script>
 

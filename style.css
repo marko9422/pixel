@@ -7,18 +7,13 @@ body{
   background-color: rgb(78, 84, 84);
 }
 .grid{
-  position: absolute;
+  /* position: absolute; */
   cursor: crosshair;
   text-align: center;
   font-size: 0px;
-
   top: 0%; 
   left: 0%;
   transform: translate(0%,0%); 
-
-  /* top: 50%; 
-  left: 50%; 
-  transform: translate(-50%,-50%); */
 }
 .pixel{
   width: 20px;
@@ -33,20 +28,24 @@ body{
 }
 
 /* drag Grid */
+.container{
+  text-align: center;
+}
 .touchGrid{
   position: absolute;
-  top: 40%;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%,-50%);
-  overflow: hidden;
+  transform: translate(-50%,-50%); 
 
-  height: 300px;
-  width: 300px;
-  border: 3px solid red;
+}
+.upDown{
+  display: none;
+}
+.leftRight{
+  display: none;
 }
 
 .slider {
-  -webkit-appearance: none;
   width: 300px;
   height: 20px;
   background: #d3d3d3;
@@ -60,18 +59,37 @@ body{
   appearance: none;
   width: 20px;
   height: 20px;
-  background: #04AA6D;
 }
-.upDown{
-  transform: rotate(90deg); 
-  position: absolute;
-  top: 40%;
-  left: 55%;
-}
-.leftRight{
 
-}
+
+
 
 /*************************/
 /****** Responsivity *****/
 /*************************/
+
+@media (max-width: 750px) {
+  .touchGrid{
+    position: relative;
+    top: 150px;
+    left: 50%;
+    transform: translate(-50%,-50%); 
+    overflow: hidden;
+    border: 3px solid red;
+    height: 300px;
+    width: 300px;
+
+  }
+  
+  .upDown{
+    display: inline-block;
+    position: relative;
+    transform: rotate(90deg) translate(165px,-163px);
+  }
+  .leftRight{
+    display: inline-block;
+    position: absolute;
+  }
+  
+
+}
