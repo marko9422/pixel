@@ -129,22 +129,6 @@ function saveData(){
     location.href = `http://localhost/pixel/show.php?number=${number}`;
 }
 
-///////////////////////////////////
-////// Range on mobile device /////
-///////////////////////////////////
-
-upDown = document.querySelector('#rangeUpDown');
-leftRight = document.querySelector('#rangeLeftRight');
-
-upDown.addEventListener('input',function(){
-    leftRightValue = leftRight.value
-    grid.style.transform = `translate(-${leftRightValue}%,-${this.value}%)`
-})
-leftRight.addEventListener('input',function(){
-    upDownValue = upDown.value
-    grid.style.transform = `translate(-${this.value}%,-${upDownValue}%)`
-})
-
 // Is this device TOUCH or MOUSE
 let result = document.querySelector(".touchGrid");
 const isTouchDevice = () => {
@@ -155,17 +139,51 @@ const isTouchDevice = () => {
 };
 isTouchDevice();
 
+/////////////////////////////////
+////// Plus / Minus buttons /////
+/// up/ down/ left/ right ///////
+/////////////////////////////////
 
 
+let Translatetop = 0     
+    Translateleft = 0
 
+function upButton(){
+    if(Translatetop <= + sizeOfPixel*2){
+        Translatetop = Translatetop + sizeOfPixel*2
+            grid.style.transform = `translate(${Translateleft}px,${Translatetop}px)`;
+            console.log(grid.style.transform)
+    }
+}
+function downButton(){
+    let TouchGridWidth = result.offsetWidth
+    let gridWidth = grid.offsetWidth
+    let spaceForDown = -(gridWidth - TouchGridWidth)
+    if(Translatetop > spaceForDown - sizeOfPixel*2){
+        Translatetop = Translatetop - sizeOfPixel*2
+            grid.style.transform = `translate(${Translateleft}px,${Translatetop}px)`;
+    }
 
+}
 
+function LeftButton(){
+    if(Translateleft <= + sizeOfPixel*2){
+        Translateleft = Translateleft + sizeOfPixel*2
+            grid.style.transform = `translate(${Translateleft}px,${Translatetop}px)`;
+            console.log(grid.style.transform)
+    }
+}
 
+function RightButton(){
+    let TouchGridWidth = result.offsetWidth
+    let gridWidth = grid.offsetWidth
+    let spaceForDown = -(gridWidth - TouchGridWidth)
+    if(Translateleft > spaceForDown - sizeOfPixel*2){
+        Translateleft = Translateleft - sizeOfPixel*2
+            grid.style.transform = `translate(${Translateleft}px,${Translatetop}px)`;
+    }
+}
 
-
-///////////////////////////////
-////// responsivity ///////////
-///////////////////////////////
 
 
 

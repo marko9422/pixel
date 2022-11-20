@@ -1,9 +1,6 @@
 <?php include 'parts/header.php' ?>
 
 <div class="container">
-    <input type="range" min="0" max="58" value="0" class="slider leftRight" id="rangeLeftRight">
-
-    <input type="range" min="0" max="58" value="0" class="slider upDown" id="rangeUpDown">
 
     <div class="touchGrid">
         <div class="grid"></div>
@@ -26,6 +23,16 @@
 
 <button onclick="saveData()">Save Data</button>
 <button onclick="clearData()">clear</button>
+
+
+<button onclick="plusButton()">+</button>
+<button onclick="minusButton()">-</button>
+
+<button onclick="upButton()">Up</button>
+<button onclick="downButton()">Down</button>
+
+<button onclick="LeftButton()">Left</button>
+<button onclick="RightButton()">Right</button>
 
 
 
